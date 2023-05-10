@@ -167,17 +167,21 @@ function commonOrder(token: Token): number {
 }
 
 export const QualifierTypes = {
-  Alpha: 1,
-  Beta: 2,
-  Milestone: 3,
-  RC: 4,
-  Snapshot: 5,
-  Release: 6,
-  SP: 7,
+  Dev: 1,
+  Alpha: 2,
+  Beta: 3,
+  Milestone: 4,
+  RC: 5,
+  Snapshot: 6,
+  Release: 7,
+  SP: 8,
 } as const;
 
 export function qualifierType(token: Token): number | null {
   const val = token.val;
+  if (val === 'dev') {
+    return QualifierTypes.Dev;
+  }
   if (val === 'alpha' || (token.isTransition && val === 'a')) {
     return QualifierTypes.Alpha;
   }

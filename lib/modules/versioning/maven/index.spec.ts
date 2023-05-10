@@ -51,6 +51,11 @@ describe('modules/versioning/maven/index', () => {
     ${''}                   | ${false}
     ${'foobar'}             | ${true}
     ${'final'}              | ${true}
+    ${'0'}                  | ${true}
+    ${'0.1'}                | ${true}
+    ${'0.10.1'}             | ${true}
+    ${'0.10.1-dev-223'}     | ${false}
+    ${'1.0-SNAPSHOT'}       | ${false}
     ${'1'}                  | ${true}
     ${'1.2'}                | ${true}
     ${'1.2.3'}              | ${true}

@@ -213,9 +213,10 @@ describe('modules/versioning/maven/compare', () => {
 
     describe('ordering', () => {
       it.each`
-        x              | y
-        ${'1-snap'}    | ${'1'}
-        ${'1-preview'} | ${'1-snapshot'}
+        x                   | y
+        ${'1-snap'}         | ${'1'}
+        ${'1-preview'}      | ${'1-snapshot'}
+        ${'0.10.0-dev-222'} | ${'0.10.0'}
       `('$x < $y', ({ x, y }) => {
         expect(compare(x, y)).toBe(-1);
         expect(compare(y, x)).toBe(1);
